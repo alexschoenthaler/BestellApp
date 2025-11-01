@@ -1,0 +1,18 @@
+:root{
+    --globalorange: orange;
+    --globalgray: rgb(205, 202, 202);
+    --globalwhite:#efefef;
+}
+
+*{
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.externaldistance{
+    padding-right: 120px;
+    padding-left: 120px;
+}
