@@ -7,7 +7,7 @@
     <title>Bestell App</title>
     <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon-32x32.png">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./styles/standart.css">
+    <link rel="stylesheet" href="./standart.css">
     <link rel="stylesheet" href="./styles/assets.css">
     <script src="./script.js"></script>
     <script src="./scripts/htmltamplates.js"></script>
@@ -74,7 +74,7 @@
                 </section>
 
                 <section class="all_main_courses externaldistance">
-                    <h2>Hauptgerichte</h2>
+                    <h1>Hauptgerichte</h1>
                     <div id="main_courses" class="main_courses"></div>
                 </section>
             </section>
@@ -84,23 +84,28 @@
                     <h2>Warenkorb</h2>
                     <div id="shopping_cart">
                     </div>
-                    <h3>Gesamtpreis</h3>
-                    <div id="full_price"></div>
                     </section>
-                    <section class="cart_clear_and_order">
-                        <button onclick="clear_cart()" class="button">Warenkorb leeren</button>
-                        <button class="button">Bestellung senden</button>
+                    <section class="footer_cart">
+                        <div class="full_price">
+                        <h3>-----------------<br>Gesamtpreis</h3>
+                        <div id="full_price"></div>
+                        </div>
+                        <div class="order_buttons">
+                        <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()" class="round_button" alt="Löschen"></img>
+                        <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button" alt="Weiter"></img>
+                        </div>
                     </section>
-                    <!-- <section class="order_img">
-                        <img src="./assets/imiges/fast-food-6974507_640.jpg" alt="">
-                    </section> -->
                 </div>    
             </section>
         </div>
     </main>
     <footer class="externaldistance">
         <!-- <a target="_blank" href="https://icons8.com/icon/114091/minus">Minus</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
-         <!-- <a target="_blank" href="https://icons8.com/icon/11255/plus">Plus</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/11255/plus">Plus</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/26147/next-page">Next Page</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/7703/cancel">Stornieren</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/rTCn8aPjsZUS/forward-arrow">Pfeil: Vorwärts</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/rTCn8aPjsZUS/forward-arrow">Pfeil: Vorwärts</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
     </footer>
     
 </body>
