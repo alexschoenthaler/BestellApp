@@ -2,7 +2,7 @@ let all_main_courses = [
     {
         "name":"Lasagne",
         "description": "Lasagne Bolognese nach traditionellem Rezept",
-        "price": 20,
+        "price": 15,
         "img": "lasagna.jpg"
     },
     {
@@ -10,6 +10,18 @@ let all_main_courses = [
         "description": "Mit Topfenteig",
         "price": 18,
         "img": "Marillenknödel-5839897_640.jpg"
+    },
+    {
+        "name": "Sushi Platte",
+        "description": "11 Stück",
+        "price": 22,
+        "img": "black-plate-9137133_1280.jpg"
+    },
+    {
+        "name": "Spaggetti alla Scoglia",
+        "description": "Nudeln mit Meresfrüchte",
+        "price": 17,
+        "img": "spaghetti-1988004_640.jpg"
     }
 ];
 
@@ -20,6 +32,14 @@ let shopping_cart = [
     },
     {
         "name": "Marillenknödel",
+        "number": 0
+    },
+    {
+        "name": "Sushi Platte",
+        "number": 0
+    },
+    {
+        "name": "Spaggetti alla Scoglia",
         "number": 0
     }
 ];
@@ -72,4 +92,12 @@ function calculatefullprice() {
          amaount += shopping_cart[shopping_cartindex].number * all_main_courses[shopping_cartindex].price;
         } 
     return amaount;
+}
+
+function clear_cart() {
+    for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
+          shopping_cart[shopping_cartindex].number = 0;
+        } 
+    renderShopping_cart();
+    calculatefullprice();
 }

@@ -1,0 +1,17 @@
+button{
+     border: 2px solid var(--globalgray);
+     font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.round_button{
+    width: 30px;
+    height: 30px;
+}
+.round_button:hover{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}

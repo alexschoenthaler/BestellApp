@@ -1,4 +1,5 @@
 
+/* nav and header */
 nav{
     background-color: var(--globalorange);
     display: flex;
@@ -9,6 +10,8 @@ nav{
     width: 100px;
     height: 50px;
 }
+
+/* main */
 .page_content{
     display: flex;
 }
@@ -41,35 +44,53 @@ main{
     padding-top: 20px;
 }
 .maincours_element{
-    border: 5px solid var(--globalorange);
+    border: 2px solid var(--globalwhite);
     border-radius: 15px 0px 0px 15px;
     margin-bottom: 20px;
     padding-left: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--globalwhite);
+    background-color: var(--darkorange);
 }
-.main_courses img{
+.maincours_img_container img{
     height: 200px;
     width: 700px;
     object-fit: cover;
 }
 
+.maincours_img_container{
+    height: 200px;
+}
+
+
 /* shopping cart */
 .all_shopping_cart{
     background-color: var(--globalwhite);
     width: 300px;
+    flex-grow: 1;
 }
+
 .shopping_cart_content{
     position: sticky;
-    top: 10px;
+    top: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 300px;
 }
+
 .shopping_cart_content h2{
     padding-top: 20px;
     padding-bottom: 20px;
+}
+.shopping_cart{
+    text-align: center;
+}
+.shopping_cart h3{
+     padding-top: 10px;
+     padding-bottom: 10px;
 }
 .shopping_cart_amaount{
     display: flex;
@@ -78,30 +99,33 @@ main{
     width: 200px;
    
 }
-.button_amount_cart{
-    width: 30px;
-    height: 30px;
-}
-.button_amount_cart:hover{
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-}
+
 .hedline_dish_cart{
     text-align: center;
-}
+} 
 
 .shopping_cart_content button{
-    background-color: var(--globalorange);
     width: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: var(--globalorange);
     color: var(--globalwhite);
 }
-/* .cart_and_full_price{
-    flex-grow: 1;
-} */
+
 .cart_clear_and_order{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 300px;
+    flex-grow: 1;
+}
+.order_img img{
+    width: 300px;
+    object-fit: cover;
+}
+/* footer */
+footer{
+    height: 50px;
+    background-color: var(--darkgray);
 }

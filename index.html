@@ -8,8 +8,10 @@
     <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon-32x32.png">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/standart.css">
+    <link rel="stylesheet" href="./styles/assets.css">
     <script src="./script.js"></script>
     <script src="./scripts/htmltamplates.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -78,24 +80,29 @@
             </section>
             <section class="all_shopping_cart">
                 <div class="shopping_cart_content">
-                    <div class="cart_and_price">
+                    <section class="shopping_cart">
                     <h2>Warenkorb</h2>
                     <div id="shopping_cart">
                     </div>
                     <h3>Gesamtpreis</h3>
                     <div id="full_price"></div>
-                    </div>
-                    <div class="cart_clear_and_order">
-                        <button>Warenkorb leeren</button>
-                        <button>Bestellung senden</button>
-                    </div>
+                    </section>
+                    <section class="cart_clear_and_order">
+                        <button onclick="clear_cart()" class="button">Warenkorb leeren</button>
+                        <button class="button">Bestellung senden</button>
+                    </section>
+                    <!-- <section class="order_img">
+                        <img src="./assets/imiges/fast-food-6974507_640.jpg" alt="">
+                    </section> -->
                 </div>    
             </section>
         </div>
     </main>
     <footer class="externaldistance">
         <!-- <a target="_blank" href="https://icons8.com/icon/114091/minus">Minus</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
+         <!-- <a target="_blank" href="https://icons8.com/icon/11255/plus">Plus</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
     </footer>
+    
 </body>
 
 </html>
