@@ -27,6 +27,7 @@ let shopping_cart = [
 function init(){
     renderMain_courses();
     renderShopping_cart();
+    calculatefullprice();
 }
 
 
@@ -42,17 +43,33 @@ function renderMain_courses(){
 
 function renderShopping_cart(){
     let refShopping_cart = document.getElementById('shopping_cart');
+    let refFullprice = document.getElementById('full_price');
     refShopping_cart.innerHTML = "";
     
         for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
             if(shopping_cart[shopping_cartindex].number != 0){
              refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
-            }
+                }
             } 
+    refFullprice.innerHTML = calculatefullprice() + "€";
 }
 
-function pushtoShopping_cart(main_coursindex) {
-    shopping_cart[main_coursindex].number += 1;
-    renderShopping_cart()
+function increase_amountShopping_cart(index) {
+    shopping_cart[index].number += 1;
+    renderShopping_cart();
+    calculatefullprice();
 }
 
+function decrease_amountShopping_cart(index) {
+    shopping_cart[index].number -= 1;
+    renderShopping_cart();
+    calculatefullprice();
+}
+
+function calculatefullprice() {
+    let amaount = 0;
+    for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
+         amaount += shopping_cart[shopping_cartindex].number * all_main_courses[shopping_cartindex].price;
+        } 
+    return amaount;
+}

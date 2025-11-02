@@ -13,7 +13,7 @@ nav{
     display: flex;
 }
 .aot_and_main_courses{
-    width: calc(100%-300px)
+    width: calc(100%-300px);
 }
 main{
     background-color: var(--globalgray) ;
@@ -63,13 +63,45 @@ main{
 .shopping_cart_content{
     position: sticky;
     top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .shopping_cart_content h2{
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .shopping_cart_amaount{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+   
+}
+.button_amount_cart{
+    width: 30px;
+    height: 30px;
+}
+.button_amount_cart:hover{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.hedline_dish_cart{
+    text-align: center;
+}
+
+.shopping_cart_content button{
+    background-color: var(--globalorange);
+    width: 100px;
+    color: var(--globalwhite);
+}
+/* .cart_and_full_price{
+    flex-grow: 1;
+} */
+.cart_clear_and_order{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 300px;
 }

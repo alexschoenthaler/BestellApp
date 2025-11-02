@@ -1,5 +1,5 @@
 :root{
-    --globalorange: orange;
+    --globalorange: rgb(255, 166, 0);
     --globalgray: rgb(205, 202, 202);
     --globalwhite:#efefef;
 }
