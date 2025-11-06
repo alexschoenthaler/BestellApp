@@ -45,9 +45,32 @@ let shopping_cart = [
 ];
     
 function init(){
+    getfromLocalStorage();
     renderMain_courses();
     renderShopping_cart();
     calculatefullprice();
+}
+
+function savetoLocalStorage() {
+    localStorage.setItem("Lasagne", JSON.stringify(shopping_cart[0].number));
+    localStorage.setItem("Marillenknödel", JSON.stringify(shopping_cart[1].number));
+    localStorage.setItem("Sushi Platte", JSON.stringify(shopping_cart[2].number));
+    localStorage.setItem("Spaggetti alla Scoglia", JSON.stringify(shopping_cart[3].number));
+}
+
+function getfromLocalStorage() {
+    let reffromlocalstorage_Lasagne = JSON.parse(localStorage.getItem('Lasagne'));
+    let reffromlocalstorage_Marillenknödel = JSON.parse(localStorage.getItem('Marillenknödel'));
+    let reffromlocalstorage_Sushi_Platte = JSON.parse(localStorage.getItem('Sushi Platte'));
+    let reffromlocalstorage_Spaggetti_alla_Scoglia = JSON.parse(localStorage.getItem('Spaggetti alla Scoglia'));
+    
+    if (reffromlocalstorage_Lasagne && reffromlocalstorage_Marillenknödel && reffromlocalstorage_Sushi_Platte && reffromlocalstorage_Spaggetti_alla_Scoglia === null) {
+    }else{
+    shopping_cart[0].number = reffromlocalstorage_Lasagne;
+    shopping_cart[1].number = reffromlocalstorage_Marillenknödel;
+    shopping_cart[2].number = reffromlocalstorage_Sushi_Platte;
+    shopping_cart[3].number = reffromlocalstorage_Spaggetti_alla_Scoglia; 
+   }
 }
 
 
@@ -98,6 +121,7 @@ function clear_cart() {
     for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
           shopping_cart[shopping_cartindex].number = 0;
         } 
+    // savetoLocalStorage();
     renderShopping_cart();
     calculatefullprice();
 }

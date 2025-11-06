@@ -1,12 +1,13 @@
-:root{
+:root {
     --globalorange: rgb(255, 166, 0);
     --globalgray: rgb(205, 202, 202);
-    --globalwhite:#efefef;
-    --darkgray:rgb(102, 101, 101);
-    --darkorange:rgb(118, 80, 9);
+    --globalwhite: #efefef;
+    --darkgray: rgb(102, 101, 101);
+    --darkorange: rgb(118, 80, 9);
 
 
 }
+
 @font-face {
     font-family: openSans;
     src:
@@ -22,16 +23,33 @@
         url('./assets/Fonds/static/OpenSans-Regular.ttf') format('svg');
 }
 
-*{
+* {
     margin: 0;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     font-family: openSans;
 }
 
-.externaldistance{
+.externaldistance {
     padding-right: 120px;
     padding-left: 120px;
+}
+
+@media (max-width: 850px) {
+
+    .externaldistance {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .externaldistance {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+
 }
