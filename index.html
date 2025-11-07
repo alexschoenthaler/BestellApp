@@ -82,41 +82,52 @@
             <section class="all_shopping_cart">
                 <div class="shopping_cart_content">
                     <section class="shopping_cart">
-                    <h2>Warenkorb</h2>
-                    <div id="shopping_cart">
-                    </div>
+                        <div class="headline_border">
+                        <h2>Warenkorb</h2>
+                        </div>
+                        <div id="shopping_cart">
+                        </div>
                     </section>
                     <section class="footer_cart">
                         <div class="full_price">
-                        <h3>-----------------<br>Gesamtpreis</h3>
-                        <div id="full_price"></div>
+                            <h3>Gesamtpreis</h3>
+                            <div id="full_price"></div>
                         </div>
                         <div class="order_buttons">
-                        <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()" class="round_button" alt="Löschen"></img>
-                        <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button" alt="Weiter"></img>
+                            <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()"
+                                class="round_button" alt="Löschen"></img>
+                            <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button"
+                                alt="Weiter"></img>
                         </div>
                     </section>
-                </div>    
+                </div>
             </section>
-            <!-- <dialog onclick="closedialog('all_shopping_cart_mobile')" id = "all_shopping_cart_mobile">
-                 <div class="shopping_cart_content">
-                    <section class="shopping_cart">
-                    <h2>Warenkorb</h2>
-                    <div id="shopping_cart">
-                    </div>
-                    </section>
-                    <section class="footer_cart">
-                        <div class="full_price">
-                        <h3>-----------------<br>Gesamtpreis</h3>
-                        <div id="full_price"></div>
+            <section>
+                <dialog id="all_shopping_cart_mobile">
+                        <div class="shopping_cart_content" onclick="event.stopPropagation()">
+                            <section class="shopping_cart">
+                                <div class="headline_border">
+                                <h2>Warenkorb</h2>
+                                </div>
+                                <div id="shopping_cart_mobile">
+                                </div>
+                            </section>
+                            <section class="footer_cart">
+                                <div class="full_price">
+                                    <h3>Gesamtpreis</h3>
+                                    <div id="full_price_mobile"></div>
+                                </div>
+                                <div class="order_buttons">
+                                    <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png"
+                                        onclick="clear_cart()" class="round_button" alt="Löschen"></img>
+                                    <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button"
+                                        alt="Weiter"></img>
+                                </div>
+                            </section>
+                            <div onclick="closedialog('all_shopping_cart_mobile')" class="closedialog">X</div>
                         </div>
-                        <div class="order_buttons">
-                        <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()" class="round_button" alt="Löschen"></img>
-                        <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button" alt="Weiter"></img>
-                        </div>
-                    </section>
-                </div>    
-            </dialog> -->
+                </dialog>
+            </section>
         </div>
     </main>
     <footer class="externaldistance">
@@ -127,7 +138,7 @@
         <!-- <a target="_blank" href="https://icons8.com/icon/rTCn8aPjsZUS/forward-arrow">Pfeil: Vorwärts</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
         <!-- <a target="_blank" href="https://icons8.com/icon/rTCn8aPjsZUS/forward-arrow">Pfeil: Vorwärts</a> Icon von <a target="_blank" href="https://icons8.com">Icons8</a> -->
     </footer>
-    
+
 </body>
 
 </html>

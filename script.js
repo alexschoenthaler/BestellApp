@@ -28,11 +28,11 @@ let all_main_courses = [
 let shopping_cart = [
     {
         "name":"Lasagne",
-        "number": 0
+        "number": 0,
     },
     {
         "name": "Marillenknödel",
-        "number": 0
+        "number": 0,
     },
     {
         "name": "Sushi Platte",
@@ -48,7 +48,9 @@ function init(){
     getfromLocalStorage();
     renderMain_courses();
     renderShopping_cart();
+    renderShopping_cart_mobile();
     calculatefullprice();
+    price_dish();
 }
 
 function savetoLocalStorage() {
@@ -59,18 +61,14 @@ function savetoLocalStorage() {
 }
 
 function getfromLocalStorage() {
-    let reffromlocalstorage_Lasagne = JSON.parse(localStorage.getItem('Lasagne'));
-    let reffromlocalstorage_Marillenknödel = JSON.parse(localStorage.getItem('Marillenknödel'));
-    let reffromlocalstorage_Sushi_Platte = JSON.parse(localStorage.getItem('Sushi Platte'));
-    let reffromlocalstorage_Spaggetti_alla_Scoglia = JSON.parse(localStorage.getItem('Spaggetti alla Scoglia'));
-    
-    if (reffromlocalstorage_Lasagne && reffromlocalstorage_Marillenknödel && reffromlocalstorage_Sushi_Platte && reffromlocalstorage_Spaggetti_alla_Scoglia === null) {
-    }else{
-    shopping_cart[0].number = reffromlocalstorage_Lasagne;
-    shopping_cart[1].number = reffromlocalstorage_Marillenknödel;
-    shopping_cart[2].number = reffromlocalstorage_Sushi_Platte;
-    shopping_cart[3].number = reffromlocalstorage_Spaggetti_alla_Scoglia; 
-   }
+
+    for (let localstorageindex = 0; localstorageindex < shopping_cart.length; localstorageindex++) {
+        let reffromlocalstorage = JSON.parse(localStorage.getItem(shopping_cart[localstorageindex].name));
+        if ( reffromlocalstorage > 0) {
+           
+           shopping_cart[localstorageindex].number = reffromlocalstorage;
+        }     
+    } 
 }
 
 
@@ -91,6 +89,23 @@ function renderShopping_cart(){
     
         for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
             if(shopping_cart[shopping_cartindex].number != 0){
+                refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
+                let refPricedish = document.getElementById('price_dish');
+                refPricedish.innerHTML += price_dish(shopping_cartindex) + "€";
+                }
+            } 
+
+    refFullprice.innerHTML = calculatefullprice() + "€";
+    
+}
+
+function renderShopping_cart_mobile(){
+    let refShopping_cart = document.getElementById('shopping_cart_mobile');
+    let refFullprice = document.getElementById('full_price_mobile');
+    refShopping_cart.innerHTML = "";
+    
+        for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
+            if(shopping_cart[shopping_cartindex].number != 0){
              refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
                 }
             } 
@@ -100,13 +115,21 @@ function renderShopping_cart(){
 function increase_amountShopping_cart(index) {
     shopping_cart[index].number += 1;
     renderShopping_cart();
+    renderShopping_cart_mobile();
     calculatefullprice();
 }
 
 function decrease_amountShopping_cart(index) {
     shopping_cart[index].number -= 1;
     renderShopping_cart();
+    renderShopping_cart_mobile();
     calculatefullprice();
+}
+
+function price_dish(shopping_cartindex) {
+    let amaount = 0;
+    amaount = shopping_cart[shopping_cartindex].number * all_main_courses[shopping_cartindex].price;
+    return amaount;      
 }
 
 function calculatefullprice() {
@@ -121,7 +144,8 @@ function clear_cart() {
     for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
           shopping_cart[shopping_cartindex].number = 0;
         } 
-    // savetoLocalStorage();
+    savetoLocalStorage();
     renderShopping_cart();
+    renderShopping_cart_mobile()
     calculatefullprice();
 }
