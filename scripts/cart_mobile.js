@@ -1,16 +1,12 @@
-/** Open the Dialog with animation*/
+/** Open the Dialog*/
 function opendialog(ID) {
     const refdialog = document.getElementById(ID);
-    refdialog.showModal();
-    refdialog.classList.remove('closed');
-    refdialog.classList.add('opend');     
+    refdialog.showModal();     
 }
 
-/**Close the Dialog with animation */
+/**Close the Dialog*/
 function closedialog(ID) {
     const refdialog = document.getElementById(ID);
-    refdialog.classList.add('closed');
-    refdialog.classList.remove('opend');
     setTimeout(()=>{                    
     refdialog.close();
     },200)     

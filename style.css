@@ -1,12 +1,23 @@
+:root {
+    --globalorange: rgb(255, 166, 0);
+    --globalgray: rgb(205, 202, 202);
+    --globalwhite: #efefef;
+    --darkgray: rgb(102, 101, 101);
+    --darkorange: rgb(118, 80, 9);
+    --globallightgray: rgb(186, 185, 185);
+}
+
 /* nav and header */
 header {
     background-color: var(--globalorange);
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 nav img {
     display: none;
 }
@@ -21,6 +32,7 @@ nav img {
     display: flex;
     width: 100%;
 }
+
 main {
     background-color: var(--globalgray);
     min-height: calc(100vh - 100px);
@@ -46,14 +58,27 @@ main {
     border-radius: 50%;
 }
 
-.Pure_Table{
+.Pure_Table {
     margin-top: -100px;
     margin-bottom: 100px;
 }
 
-.nav_msc{
-    width:100%;
-    background-color: var(--darkgray);
+.nav_msc {
+    width: 100%;
+    background-color: var(--globallightgray);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav_msc a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav_msc a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .all_main_courses h2 {
@@ -137,7 +162,7 @@ main {
 
 }
 
-.delete_dish:hover{
+.delete_dish:hover {
     cursor: pointer;
 }
 
@@ -290,6 +315,11 @@ footer a:hover {
         padding-bottom: 5px;
     }
 
+    .Pure_Table {
+        margin-top: 0;
+        margin-bottom: 100px;
+    }
+
 }
 
 @media (max-width: 550px) {
@@ -309,6 +339,9 @@ footer a:hover {
 
     .maincours_element {
         width: 300px;
+    }
+    .nav_msc{
+        gap: 10px;
     }
 }
 

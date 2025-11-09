@@ -7,12 +7,13 @@
     <title>Bestell App</title>
     <link rel="icon" type="image/x-icon" href="./assets/Favicon/favicon-32x32.png">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./standart.css">
+    <link rel="stylesheet" href="./styles/standart.css">
     <link rel="stylesheet" href="./styles/assets.css">
+    <link rel="stylesheet" href="./fonds.css">
+    <script src="./scripts/db.js"></script>
     <script src="./script.js"></script>
     <script src="./scripts/htmltamplates.js"></script>
     <script src="./scripts/cart_mobile.js"></script>
-
 </head>
 
 <body onload="init()">
@@ -63,7 +64,7 @@
             </nav>
         </div>
     </header>
-    <main >
+    <main>
         <div class="page_content contentlimitation">
             <section class="aot_and_main_courses">
                 <section class="aot">
@@ -78,15 +79,18 @@
 
                 <section class="all_main_courses externaldistance">
                     <div class="Pure_Table">
-                    <h1>The Pure Table</h1>
-                    <p>Bewertung (4,2 von 5 Sternen)</p>
+                        <h1>The Pure Table</h1>
+                        <p>Bewertung (4,2 von 5 Sternen)</p>
                     </div>
                     <div class="nav_msc">
-                        <span>Hauptgerichet</span>
-                        <span>Beilagen</span>
+                        <img src="./assets/Icons/icons8-vorwärts-48.png" alt="Pfeil">
+                        <a href="#all_main_courses">Hauptgerichte</a>
+                        <a href="#all_side_dish">Beilagen</a>
                     </div>
-                    <h2>Hauptgerichte</h2>
+                    <h2 id="all_main_courses">Hauptgerichte</h2>
                     <div id="main_courses" class="main_courses"></div>
+                    <h2 id="all_side_dish">Beilagen</h2>
+                    <p>Kommen bald.......</p>
                 </section>
             </section>
             <section class="all_shopping_cart">
@@ -107,8 +111,9 @@
                             <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()"
                                 class="round_button" alt="Löschen"></img>
                             <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button"
-                                alt="Weiter"></img>
+                                onclick="ordern('massage_box'),clear_cart()" alt="Bestellung vormerken"></img>
                         </div>
+                        <div id="massage_box"></div>
                     </section>
                 </div>
             </section>
@@ -128,11 +133,13 @@
                                 <div id="full_price_mobile"></div>
                             </div>
                             <div class="order_buttons">
-                                <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" onclick="clear_cart()"
-                                     alt="Löschen"></img>
+                                <img src="./assets/Icons/icons8-unwiederuflich-löschen-50.png" class="round_button"
+                                    onclick="clear_cart()" alt="Löschen"></img>
                                 <img src="assets/Icons/icons8-pfeil_-vorwärts-72.png" class="round_button"
+                                    onclick="ordern('massage_box_mobile'),clear_cart()"
                                     alt="Bestellung Vormerken"></img>
                             </div>
+                            <div id="massage_box_mobile"></div>
                         </section>
                         <div onclick="closedialog('all_shopping_cart_mobile')" class="closedialog">X</div>
                     </div>

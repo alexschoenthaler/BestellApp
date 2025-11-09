@@ -1,0 +1,18 @@
+@font-face {
+    font-family: openSans;
+    src:
+        /* Internet Explorer */
+        url('./assets/Fonds/static/OpenSans-Regular.ttf') format('embedded-opentype'),
+        /* Super Modern Browsers */
+        url('./assets/Fonds/static/OpenSans-Regular.ttf') format('woff2'),
+        /* Pretty Modern Browsers */
+        url('./assets/Fonds/static/OpenSans-Regular.ttf') format('woff'),
+        /* Safari, Android, iOS */
+        url('./assets/Fonds/static/OpenSans-Regular.ttf') format('truetype'),
+        /* Legacy iOS */
+        url('./assets/Fonds/static/OpenSans-Regular.ttf') format('svg');
+}
+
+html{
+    font-family: openSans;
+}
