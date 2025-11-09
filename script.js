@@ -16,6 +16,9 @@ function savetoLocalStorage(){
     localStorage.setItem("Marillenknödel", JSON.stringify(shopping_cart[1].number));
     localStorage.setItem("Sushi Platte", JSON.stringify(shopping_cart[2].number));
     localStorage.setItem("Spaggetti alla Scoglia", JSON.stringify(shopping_cart[3].number));
+    localStorage.setItem("Pizza Margherita", JSON.stringify(shopping_cart[4].number));
+    localStorage.setItem("Pizza Diavola", JSON.stringify(shopping_cart[5].number));
+    localStorage.setItem("Pizza Vegetariana", JSON.stringify(shopping_cart[6].number));
 }
 
 /**

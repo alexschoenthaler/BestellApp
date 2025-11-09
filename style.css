@@ -20,6 +20,8 @@ nav {
 
 nav img {
     display: none;
+    width: 40px;
+    height: 40px;
 }
 
 .mainlogo {
@@ -108,7 +110,6 @@ main {
 .maincours_img_container {
     height: 200px;
 }
-
 
 /* shopping cart */
 .all_shopping_cart {
