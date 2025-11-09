@@ -1,11 +1,12 @@
 /* nav and header */
-nav {
+header {
     background-color: var(--globalorange);
+}
+nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 nav img {
     display: none;
 }
@@ -20,9 +21,9 @@ nav img {
     display: flex;
     width: 100%;
 }
-
 main {
     background-color: var(--globalgray);
+    min-height: calc(100vh - 100px);
 }
 
 .aot {
@@ -45,7 +46,17 @@ main {
     border-radius: 50%;
 }
 
-.all_main_courses h1 {
+.Pure_Table{
+    margin-top: -100px;
+    margin-bottom: 100px;
+}
+
+.nav_msc{
+    width:100%;
+    background-color: var(--darkgray);
+}
+
+.all_main_courses h2 {
     text-align: center;
     padding-bottom: 50px;
     padding-top: 20px;
@@ -78,6 +89,7 @@ main {
 .all_shopping_cart {
     background-color: var(--globalwhite);
     width: 300px;
+    max-width: 1000px;
     flex-grow: 1;
 }
 
@@ -94,10 +106,10 @@ main {
 .shopping_cart_content {
     position: sticky;
     top: 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
     height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .shopping_cart_content h2 {
@@ -107,6 +119,9 @@ main {
 
 .shopping_cart {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .shopping_cart h3 {
@@ -120,6 +135,10 @@ main {
     align-items: center;
     width: 200px;
 
+}
+
+.delete_dish:hover{
+    cursor: pointer;
 }
 
 .order_buttons img {
@@ -167,6 +186,20 @@ dialog {
 footer {
     height: 50px;
     background-color: var(--darkgray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--globalwhite);
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--globalwhite);
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Mobile View */

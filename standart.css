@@ -37,6 +37,13 @@ html {
     padding-left: 120px;
 }
 
+/* contentlimitation */
+.contentlimitation {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+
 @media (max-width: 850px) {
 
     .externaldistance {

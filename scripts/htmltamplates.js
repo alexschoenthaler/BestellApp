@@ -18,7 +18,9 @@ function Shopping_cartTamplate(shopping_cartindex){
             <div class = "shopping_cart_amaount">
                 <img onclick ="increase_amountShopping_cart(${shopping_cartindex}), savetoLocalStorage()" class ="round_button" src="./assets/Icons/icons8-plus-50.png" alt="Plus">
                 <p>${shopping_cart[shopping_cartindex].number}</p>
-                <img onclick ="decrease_amountShopping_cart(${shopping_cartindex}), savetoLocalStorage()" class ="round_button" src="./assets/Icons/icons8-minus-50.png" alt="Minus">     
+                <img onclick ="decrease_amountShopping_cart(${shopping_cartindex}), savetoLocalStorage()" class ="round_button" src="./assets/Icons/icons8-minus-50.png" alt="Minus">
+                <p>${price_dish(shopping_cartindex)} € </p>
+                <img onclick = "clear_price_dish(${shopping_cartindex})" src="./assets/Icons/icons8-müll-32.png" class = "delete_dish" alt="Löschen">
             </div>
-            <p id="price_dish"></p>`
+          `
 }

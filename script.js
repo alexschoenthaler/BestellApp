@@ -49,8 +49,6 @@ function init(){
     renderMain_courses();
     renderShopping_cart();
     renderShopping_cart_mobile();
-    calculatefullprice();
-    price_dish();
 }
 
 function savetoLocalStorage() {
@@ -84,14 +82,12 @@ function renderMain_courses(){
 
 function renderShopping_cart(){
     let refShopping_cart = document.getElementById('shopping_cart');
-    let refFullprice = document.getElementById('full_price');
+    let refFullprice = document.getElementById('full_price'); 
     refShopping_cart.innerHTML = "";
     
         for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
             if(shopping_cart[shopping_cartindex].number != 0){
                 refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
-                let refPricedish = document.getElementById('price_dish');
-                refPricedish.innerHTML += price_dish(shopping_cartindex) + "€";
                 }
             } 
 
@@ -132,6 +128,14 @@ function price_dish(shopping_cartindex) {
     return amaount;      
 }
 
+function clear_price_dish(shopping_cartindex) {
+    shopping_cart[shopping_cartindex].number = 0
+    savetoLocalStorage();
+    renderShopping_cart();
+    renderShopping_cart_mobile();
+    calculatefullprice();
+}
+
 function calculatefullprice() {
     let amaount = 0;
     for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
@@ -146,6 +150,6 @@ function clear_cart() {
         } 
     savetoLocalStorage();
     renderShopping_cart();
-    renderShopping_cart_mobile()
+    renderShopping_cart_mobile();
     calculatefullprice();
 }
