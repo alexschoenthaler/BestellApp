@@ -159,7 +159,7 @@ function ordern(ID){
     },2000) 
     }
     else{
-    refMessage_box.innerHTML = "Bitte, Besttelung auswählen"
+    refMessage_box.innerHTML = "Bitte, Bestellung auswählen"
     setTimeout(()=>{                    
     refMessage_box.innerHTML = "";
     },2000) 

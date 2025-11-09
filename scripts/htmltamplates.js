@@ -8,7 +8,7 @@ function maincoursTamplate(main_coursindex){
                     <img class = "round_button add_shoppingcard" src="./assets/Icons/icons8-plus-50_white.png" alt="Plus" onclick= "increase_amountShopping_cart(${main_coursindex}), savetoLocalStorage()">
                 </div>
                 <div class = "maincours_img_container">
-                    <img src="./assets/imiges/${all_main_courses[main_coursindex].img}" alt="">
+                    <img src="./assets/imiges/${all_main_courses[main_coursindex].img}" alt="Das dazugehörige Bild">
                 </div>
             </div>`
 }
