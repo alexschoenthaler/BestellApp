@@ -153,7 +153,7 @@ function ordern(ID){
     let refMessage_box = document.getElementById(ID)
     let amaount = calculatefullprice();
     if(amaount > 0){
-    refMessage_box.innerHTML = "Besttellung wurde vorgemerkt, Vielen Dank!"
+    refMessage_box.innerHTML = "Bestellung wurde vorgemerkt, Vielen Dank!"
     setTimeout(()=>{                    
     refMessage_box.innerHTML = "";
     },2000) 
