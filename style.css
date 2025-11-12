@@ -5,6 +5,7 @@
     --darkgray: rgb(102, 101, 101);
     --darkorange: rgb(118, 80, 9);
     --globallightgray: rgb(186, 185, 185);
+    --globalblue: rgb(56, 56, 111);
 }
 
 /* nav and header */
@@ -160,7 +161,11 @@ main {
     justify-content: space-between;
     align-items: center;
     width: 200px;
+}
 
+.shopping_cart_amaount p{
+    width: 25%;
+    white-space: nowrap;
 }
 
 .delete_dish:hover {
@@ -208,6 +213,18 @@ dialog {
     cursor: pointer;
 }
 
+.shoppingCartMobileNav{
+    display: none;
+    position: sticky;
+    bottom: 0;
+    padding: 10px;
+    background-color: var(--globalblue);
+    color: var(--globalwhite);
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
 /* footer */
 footer {
     height: 50px;
@@ -229,14 +246,22 @@ footer a:hover {
 }
 
 /* Mobile View */
+@media(max-width:1940px) {
+    nav {
+        padding-right: 120px;
+        padding-left: 120px;
+    }
+
+}
+
 @media(max-width:1400px) {
 
     .all_shopping_cart {
-        width: 200px;
+        width: 300px;
     }
 
     .shopping_cart_amaount {
-        width: 150px;
+        width: 200px;
 
     }
 
@@ -266,12 +291,12 @@ footer a:hover {
         display: none;
     }
 
-    nav img {
-        display: unset;
-    }
-
     .aot_and_main_courses {
         width: 100%;
+    }
+
+    .shoppingCartMobileNav{
+        display: revert;
     }
 }
 
@@ -341,7 +366,8 @@ footer a:hover {
     .maincours_element {
         width: 300px;
     }
-    .nav_msc{
+
+    .nav_msc {
         gap: 10px;
     }
 }

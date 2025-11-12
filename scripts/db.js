@@ -1,7 +1,7 @@
 /**
  * Database of all main courses
  */
-let all_main_courses = [
+const all_main_courses = [
     {
         "name":"Lasagne",
         "description": "Lasagne Bolognese nach traditionellem Rezept",
@@ -29,7 +29,7 @@ let all_main_courses = [
     {
         "name": "Pizza Margherita",
         "description": "Der italienische Klassiker",
-        "price": 9,
+        "price": 10,
         "img": "magerita.jpg"
     },
     {
@@ -46,10 +46,31 @@ let all_main_courses = [
     }
 ];
 
+const all_side_courses = [
+     {
+        "name":"Pommes",
+        "description": "Frietierte Kartoffeln",
+        "price": 5,
+        "img": "lasagna.jpg"
+    },
+    {
+        "name": "Gemüse",
+        "description": "Frische Tomaten, Paprika und Melanzane",
+        "price": 7,
+        "img": "Marillenknödel-5839897_640.jpg"
+    },
+    {
+        "name": "Pilze",
+        "description": "Champingions, Pfifferlinge und Steinpilze",
+        "price": 8,
+        "img": "black-plate-9137133_1280.jpg"
+    },
+]
+
 /**
  * Shopping cart state
  */
-let shopping_cart = [
+const shopping_cart = [
     {
         "name":"Lasagne",
         "number": 0,

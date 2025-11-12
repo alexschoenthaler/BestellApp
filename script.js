@@ -48,6 +48,11 @@ function renderMain_courses(){
     }
 }
 
+function renderFull_price() {
+    calculatefullprice();
+    let refFullprice = document.getElementById('full_price');
+    refFullprice.innerHTML = calculatefullprice() + "€";
+}
 /**
  * Renders the shopping cart on the page
  */
@@ -82,21 +87,36 @@ function renderShopping_cart_mobile(){
     refFullprice.innerHTML = calculatefullprice() + "€";
 }
 
+function renderShopping_cart_element(index) {
+    let refShoppingAmountID = document.getElementById('shoppingAmountID'+ index);
+    let refShoppingPriceID = document.getElementById('shoppingPriceID' + index);
+    refShoppingAmountID.innerHTML = shopping_cart[index].number;
+    refShoppingPriceID.innerHTML = price_dish(index) + "€";
+    renderFull_price();
+}
+
 /**
  * Increases the quantity of a dish in the shopping cart 
  */
-function increase_amountShopping_cart(index){
-    shopping_cart[index].number += 1;
-    renderShopping_cart();
+function increase_amountShopping_cart(shopping_cartindex){
+    let refShopping_cart = document.getElementById('shopping_cart');
+    if (shopping_cart[shopping_cartindex].number > 0) {
+        shopping_cart[shopping_cartindex].number += 1;
+        renderShopping_cart_element(shopping_cartindex);
+    }
+    if (shopping_cart[shopping_cartindex].number == 0) {
+        shopping_cart[shopping_cartindex].number += 1;
+        refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
+        renderFull_price();
+    }
     renderShopping_cart_mobile();
-    calculatefullprice();
 }
 
 /**
  * Decreases the quantity of a dish in the shopping cart
  */
-function decrease_amountShopping_cart(index){
-    shopping_cart[index].number -= 1;
+function decrease_amountShopping_cart(shopping_cartindex){
+    shopping_cart[shopping_cartindex].number -= 1;
     renderShopping_cart();
     renderShopping_cart_mobile();
     calculatefullprice();
