@@ -84,13 +84,13 @@ main {
     cursor: pointer;
 }
 
-.all_main_courses h2 {
+.all_dishes h2 {
     text-align: center;
     padding-bottom: 50px;
     padding-top: 20px;
 }
 
-.maincours_element {
+.dish_element {
     border: 2px solid var(--globalwhite);
     border-radius: 15px 0px 0px 15px;
     margin-bottom: 20px;
@@ -102,13 +102,13 @@ main {
     background-color: var(--darkorange);
 }
 
-.maincours_img_container img {
+.dish_img_container img {
     height: 200px;
     width: 700px;
     object-fit: cover;
 }
 
-.maincours_img_container {
+.dish_img_container {
     height: 200px;
 }
 
@@ -199,11 +199,11 @@ dialog {
 }
 
 .closedialog {
-    background-color: var(--globalorange);
+    background-color: var(--globalblue);
     padding: 10px 20px 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    color: white;
+    color: var(--globalwhite);
     position: absolute;
     top: 0;
     right: 0;
@@ -291,7 +291,7 @@ footer a:hover {
         display: none;
     }
 
-    .aot_and_main_courses {
+    .aot_and_dishes{
         width: 100%;
     }
 
@@ -301,20 +301,20 @@ footer a:hover {
 }
 
 @media (max-width: 1160px) {
-    .maincours_img_container img {
+    .dish_img_container img {
         width: 500px;
     }
 }
 
 @media (max-width: 940px) {
 
-    .all_main_courses {
+    .all_dishes {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .maincours_element {
+    .dish_element {
         flex-direction: column;
         align-items: unset;
         border: 2px solid var(--globalwhite);
@@ -325,13 +325,13 @@ footer a:hover {
 
     }
 
-    .maincours_element h3 {
+    .dish_element h3 {
         padding-left: 15px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
 
-    .maincours_element p {
+    .dish_element p {
         padding-left: 15px;
         padding-bottom: 5px;
     }
@@ -349,21 +349,21 @@ footer a:hover {
 }
 
 @media (max-width: 550px) {
-    .maincours_img_container img {
+    .dish_img_container img {
         width: 400px;
     }
 
-    .maincours_element {
+    .dish_element {
         width: 400px;
     }
 }
 
 @media (max-width: 450px) {
-    .maincours_img_container img {
+    .dish_img_container img {
         width: 300px;
     }
 
-    .maincours_element {
+    .dish_element {
         width: 300px;
     }
 

@@ -6,19 +6,23 @@ function init(){
     renderMain_courses();
     renderShopping_cart();
     renderShopping_cart_mobile();
+    renderFull_price();
 }
 
 /**
  * Saves the current shopping cart state to local storage
  */
 function savetoLocalStorage(){
-    localStorage.setItem("Lasagne", JSON.stringify(shopping_cart[0].number));
-    localStorage.setItem("Marillenknödel", JSON.stringify(shopping_cart[1].number));
-    localStorage.setItem("Sushi Platte", JSON.stringify(shopping_cart[2].number));
-    localStorage.setItem("Spaggetti alla Scoglia", JSON.stringify(shopping_cart[3].number));
-    localStorage.setItem("Pizza Margherita", JSON.stringify(shopping_cart[4].number));
-    localStorage.setItem("Pizza Diavola", JSON.stringify(shopping_cart[5].number));
-    localStorage.setItem("Pizza Vegetariana", JSON.stringify(shopping_cart[6].number));
+    localStorage.setItem("Lasagne", JSON.stringify(SHOPPING_CART[0].number));
+    localStorage.setItem("Marillenknödel", JSON.stringify(SHOPPING_CART[1].number));
+    localStorage.setItem("Sushi Platte", JSON.stringify(SHOPPING_CART[2].number));
+    localStorage.setItem("Spaggetti alla Scoglia", JSON.stringify(SHOPPING_CART[3].number));
+    localStorage.setItem("Pizza Margherita", JSON.stringify(SHOPPING_CART[4].number));
+    localStorage.setItem("Pizza Diavola", JSON.stringify(SHOPPING_CART[5].number));
+    localStorage.setItem("Pizza Vegetariana", JSON.stringify(SHOPPING_CART[6].number));
+    localStorage.setItem("Pommes", JSON.stringify(SHOPPING_CART[7].number));
+    localStorage.setItem("Gekochtes Gemüse", JSON.stringify(SHOPPING_CART[8].number));
+    localStorage.setItem("Pilze", JSON.stringify(SHOPPING_CART[9].number));
 }
 
 /**
@@ -26,11 +30,11 @@ function savetoLocalStorage(){
  */
 function getfromLocalStorage(){
 
-    for (let localstorageindex = 0; localstorageindex < shopping_cart.length; localstorageindex++) {
-        let reffromlocalstorage = JSON.parse(localStorage.getItem(shopping_cart[localstorageindex].name));
+    for (let localstorageindex = 0; localstorageindex < SHOPPING_CART.length; localstorageindex++) {
+        let reffromlocalstorage = JSON.parse(localStorage.getItem(SHOPPING_CART[localstorageindex].name));
         if ( reffromlocalstorage > 0) {
            
-           shopping_cart[localstorageindex].number = reffromlocalstorage;
+           SHOPPING_CART[localstorageindex].number = reffromlocalstorage;
         }     
     } 
 }
@@ -42,17 +46,14 @@ function renderMain_courses(){
     let refMain_courses = document.getElementById('main_courses');
     refMain_courses.innerHTML = "";
     
-    for (let main_coursindex = 0; main_coursindex < all_main_courses.length; main_coursindex++) {
-        
-        refMain_courses.innerHTML += maincoursTamplate(main_coursindex);
+    for (let main_coursindex = 0; main_coursindex < ALL_DISHES.length; main_coursindex++) {
+        if (main_coursindex == 7) {
+            refMain_courses.innerHTML+= '<h2 id="all_side_dish">Beilagen</h2>';
+        }
+        refMain_courses.innerHTML += dishesTamplate(main_coursindex);
     }
 }
 
-function renderFull_price() {
-    calculatefullprice();
-    let refFullprice = document.getElementById('full_price');
-    refFullprice.innerHTML = calculatefullprice() + "€";
-}
 /**
  * Renders the shopping cart on the page
  */
@@ -61,8 +62,8 @@ function renderShopping_cart(){
     let refFullprice = document.getElementById('full_price'); 
     refShopping_cart.innerHTML = "";
     
-        for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
-            if(shopping_cart[shopping_cartindex].number != 0){
+        for (let shopping_cartindex = 0; shopping_cartindex < SHOPPING_CART.length; shopping_cartindex++) {
+            if(SHOPPING_CART[shopping_cartindex].number != 0){
                 refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
                 }
             } 
@@ -79,19 +80,33 @@ function renderShopping_cart_mobile(){
     let refFullprice = document.getElementById('full_price_mobile');
     refShopping_cart.innerHTML = "";
     
-        for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
-            if(shopping_cart[shopping_cartindex].number != 0){
-             refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
+        for (let shopping_cartindex = 0; shopping_cartindex < SHOPPING_CART.length; shopping_cartindex++) {
+            if(SHOPPING_CART[shopping_cartindex].number != 0){
+             refShopping_cart.innerHTML += Shopping_cart_Mobile_Tamplate(shopping_cartindex);
                 }
             } 
     refFullprice.innerHTML = calculatefullprice() + "€";
 }
 
-function renderShopping_cart_element(index) {
-    let refShoppingAmountID = document.getElementById('shoppingAmountID'+ index);
-    let refShoppingPriceID = document.getElementById('shoppingPriceID' + index);
-    refShoppingAmountID.innerHTML = shopping_cart[index].number;
-    refShoppingPriceID.innerHTML = price_dish(index) + "€";
+/**
+ * Renders only the Shoppingcart Element with the index new 
+ */
+function renderShopping_cart_element(shopping_cartindex){
+    let refShoppingAmountID = document.getElementById('shoppingAmountID'+ shopping_cartindex);
+    let refShoppingPriceID = document.getElementById('shoppingPriceID' + shopping_cartindex);
+    refShoppingAmountID.innerHTML = SHOPPING_CART[shopping_cartindex].number;
+    refShoppingPriceID.innerHTML = price_dish(shopping_cartindex) + "€";
+    renderFull_price();
+}
+
+/**
+ * Renders only the Shoppingcart Mobile Element with the index new 
+ */
+function renderShopping_cart_element_mobile(shopping_cartindex){
+    let refShoppingAmountID = document.getElementById('shoppingAmountID_mobile'+ shopping_cartindex);
+    let refShoppingPriceID = document.getElementById('shoppingPriceID_mobile' + shopping_cartindex);
+    refShoppingAmountID.innerHTML = SHOPPING_CART[shopping_cartindex].number;
+    refShoppingPriceID.innerHTML = price_dish(shopping_cartindex) + "€";
     renderFull_price();
 }
 
@@ -100,26 +115,28 @@ function renderShopping_cart_element(index) {
  */
 function increase_amountShopping_cart(shopping_cartindex){
     let refShopping_cart = document.getElementById('shopping_cart');
-    if (shopping_cart[shopping_cartindex].number > 0) {
-        shopping_cart[shopping_cartindex].number += 1;
+    let refShopping_cart_mobile = document.getElementById('shopping_cart_mobile');
+    if (SHOPPING_CART[shopping_cartindex].number > 0){
+        SHOPPING_CART[shopping_cartindex].number += 1;
         renderShopping_cart_element(shopping_cartindex);
+        renderShopping_cart_element_mobile(shopping_cartindex);
     }
-    if (shopping_cart[shopping_cartindex].number == 0) {
-        shopping_cart[shopping_cartindex].number += 1;
+    if (SHOPPING_CART[shopping_cartindex].number == 0){
+        SHOPPING_CART[shopping_cartindex].number += 1;
         refShopping_cart.innerHTML += Shopping_cartTamplate(shopping_cartindex);
+        refShopping_cart_mobile.innerHTML += Shopping_cart_Mobile_Tamplate(shopping_cartindex);
         renderFull_price();
     }
-    renderShopping_cart_mobile();
 }
 
 /**
  * Decreases the quantity of a dish in the shopping cart
  */
 function decrease_amountShopping_cart(shopping_cartindex){
-    shopping_cart[shopping_cartindex].number -= 1;
+    SHOPPING_CART[shopping_cartindex].number -= 1;
     renderShopping_cart();
     renderShopping_cart_mobile();
-    calculatefullprice();
+    renderFull_price();
 }
 
 /**
@@ -127,7 +144,7 @@ function decrease_amountShopping_cart(shopping_cartindex){
  */
 function price_dish(shopping_cartindex){
     let amaount = 0;
-    amaount = shopping_cart[shopping_cartindex].number * all_main_courses[shopping_cartindex].price;
+    amaount = SHOPPING_CART[shopping_cartindex].number * ALL_DISHES[shopping_cartindex].price;
     return amaount;      
 }
 
@@ -135,11 +152,11 @@ function price_dish(shopping_cartindex){
  * Clears the quantity of a specific dish in the shopping cart
  */
 function clear_price_dish(shopping_cartindex){
-    shopping_cart[shopping_cartindex].number = 0
+    SHOPPING_CART[shopping_cartindex].number = 0
     savetoLocalStorage();
     renderShopping_cart();
     renderShopping_cart_mobile();
-    calculatefullprice();
+    renderFull_price();
 }
 
 /**
@@ -147,23 +164,34 @@ function clear_price_dish(shopping_cartindex){
  */
 function calculatefullprice(){
     let amaount = 0;
-    for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
-         amaount += shopping_cart[shopping_cartindex].number * all_main_courses[shopping_cartindex].price;
+    for (let shopping_cartindex = 0; shopping_cartindex < SHOPPING_CART.length; shopping_cartindex++) {
+         amaount += SHOPPING_CART[shopping_cartindex].number * ALL_DISHES[shopping_cartindex].price;
         } 
     return amaount;
+}
+
+/**
+ * Render the total price of all items in the shopping cart
+ */
+function renderFull_price(){
+    calculatefullprice();
+    let refShoppingCartMobileNav = document.getElementById('shoppingCartMobileNav');
+    let refFullprice = document.getElementById('full_price');
+    refShoppingCartMobileNav.innerHTML = "Warenkorb " + calculatefullprice() + "€";
+    refFullprice.innerHTML = calculatefullprice() + "€";
 }
 
 /**
  * Clears the entire shopping cart
  */
 function clear_cart(){
-    for (let shopping_cartindex = 0; shopping_cartindex < shopping_cart.length; shopping_cartindex++) {
-          shopping_cart[shopping_cartindex].number = 0;
+    for (let shopping_cartindex = 0; shopping_cartindex < SHOPPING_CART.length; shopping_cartindex++) {
+          SHOPPING_CART[shopping_cartindex].number = 0;
         } 
     savetoLocalStorage();
     renderShopping_cart();
     renderShopping_cart_mobile();
-    calculatefullprice();
+    renderFull_price();
 }
 
 /**
